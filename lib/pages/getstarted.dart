@@ -73,6 +73,8 @@ class _GetStartedState extends State<GetStarted> {
                           context, 'login', (route) => false);
                     },
                     style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
                         backgroundColor: Color(0xff50C878)),
                     child: Text(
                       "Lets Start",

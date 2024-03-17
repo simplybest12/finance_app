@@ -12,51 +12,71 @@ class _NameState extends State<Name> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: SafeArea(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Container(
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(children: [
-                  TextSpan(
-                    text: "Money  ".toUpperCase(),
-                    style: GoogleFonts.grenzeGotisch(
-                        fontSize: 28, color: Color(0xff50C878)),
-                  ),
-                  TextSpan(
-                    text: "Mate",
-                    style:
-                        GoogleFonts.tektur(fontSize: 25, color: Colors.black),
-                  ),
-                ]),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.5,
+          child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff50C878),
-                      spreadRadius: 7,
-                      blurRadius: 5,
-                      offset: Offset(0, 5),
-                    )
-                  ]),
+                  gradient: RadialGradient(
+                colors: [
+                  Color(0xff37a329),
+                  Color(0xff1a661c),
+                  Color(0xff0e4813)
+                ],
+                stops: [0, 0.5, 1],
+                center: Alignment.center,
+              )),
             ),
-          ),
-        ],
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          'assets/images/investmentc.png',
+                          color: Color(0xff50C878),
+                          height: 50,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        child: RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: "Money\n".toUpperCase(),
+                              style: GoogleFonts.grenzeGotisch(
+                                  fontSize: 30, color: Color(0xff50C878)),
+                            ),
+                            TextSpan(
+                              text: "Mate",
+                              style: GoogleFonts.tektur(
+                                  fontSize: 23, color: Colors.black),
+                            ),
+                          ]),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Text("Welcome Back!",style: GoogleFonts.aboreto(
+                // fontSize: 25,
+                // color: Color(0xff50C878)
+                // ),)
+              ],
+            ),
+          ],
+        ),
       )),
     );
   }
