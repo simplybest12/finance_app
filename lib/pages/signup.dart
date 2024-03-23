@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Name extends StatefulWidget {
-  const Name({super.key});
+class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({super.key});
 
   @override
-  State<Name> createState() => _NameState();
+  State<RegistrationPage> createState() => _RegistrationPageState();
 }
 
-class _NameState extends State<Name> {
+class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +47,13 @@ class _NameState extends State<Name> {
                     bottom: 35,
                     left: MediaQuery.of(context).size.width * 0.43,
                     child: Center(
-                      child: Image.asset(
-                        'assets/images/investment.png',
-                        height: 50,
-                        color: Colors.white,
+                      child: Container(
+                        // alignment: Alignment.bottomCenter,
+                        child: Image.asset(
+                          'assets/images/investment.png',
+                          height: 50,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   )
@@ -63,7 +66,7 @@ class _NameState extends State<Name> {
                 flex: 1,
                 child: Column(
                   children: [
-                    Text("Good to see you Back!",
+                    Text("We welcome You!",
                         style: GoogleFonts.poppins(
                             color: const Color(0xff50C878),
                             fontSize: 20,
@@ -71,7 +74,7 @@ class _NameState extends State<Name> {
                     const SizedBox(
                       height: 18,
                     ),
-                    Text("Login".toUpperCase(),
+                    Text("register".toUpperCase(),
                         style: GoogleFonts.poppins(
                             color: const Color(0xff50C878),
                             fontSize: 25,
@@ -84,10 +87,10 @@ class _NameState extends State<Name> {
               //   height: 80,
               // ),
               Expanded(
-                flex: 1,
+                flex: 3,
                 child: Column(
                   children: [
-                    SizedBox(
+                    Container(
                       width: 300,
                       height: 50,
                       child: TextFormField(
@@ -99,7 +102,7 @@ class _NameState extends State<Name> {
                               size: 20,
                             ),
                             contentPadding: const EdgeInsets.all(12),
-                            labelText: "Username",
+                            labelText: "Name",
                             labelStyle: GoogleFonts.capriola(
                                 color: Colors.grey, fontSize: 13),
                             enabledBorder: const OutlineInputBorder(
@@ -117,7 +120,37 @@ class _NameState extends State<Name> {
                     const SizedBox(
                       height: 18,
                     ),
-                    SizedBox(
+                    Container(
+                      width: 300,
+                      height: 50,
+                      child: TextFormField(
+                        style: GoogleFonts.capriola(
+                            color: const Color(0xff50C878), fontSize: 13),
+                        decoration: InputDecoration(
+                            suffixIcon: Icon(
+                              CupertinoIcons.mail_solid,
+                              size: 20,
+                            ),
+                            contentPadding: const EdgeInsets.all(12),
+                            labelText: "Email",
+                            labelStyle: GoogleFonts.capriola(
+                                color: Colors.grey, fontSize: 13),
+                            enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)),
+                              borderSide: BorderSide(
+                                color: Color(0xff50C878),
+                              ),
+                            ),
+                            focusedBorder: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)))),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    Container(
                       width: 300,
                       height: 50,
                       child: TextFormField(
@@ -125,7 +158,7 @@ class _NameState extends State<Name> {
                             color: const Color(0xff50C878), fontSize: 13),
                         decoration: InputDecoration(
                             suffixIcon: const Icon(
-                              CupertinoIcons.lock_fill,
+                              CupertinoIcons.lock_circle_fill,
                               size: 20,
                             ),
                             contentPadding: const EdgeInsets.all(12),
@@ -145,26 +178,35 @@ class _NameState extends State<Name> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 18,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const SizedBox(
-                          width: 50,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Text(
-                            "Forget Password!",
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                color: Colors.red,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        )
-                      ],
-                    )
+                    Container(
+                      width: 300,
+                      height: 50,
+                      child: TextFormField(
+                        style: GoogleFonts.capriola(
+                            color: const Color(0xff50C878), fontSize: 13),
+                        decoration: InputDecoration(
+                            suffixIcon: const Icon(
+                              CupertinoIcons.lock_circle_fill,
+                              size: 20,
+                            ),
+                            contentPadding: const EdgeInsets.all(12),
+                            labelText: "Confirm Password",
+                            labelStyle: GoogleFonts.capriola(
+                                color: Colors.grey, fontSize: 13),
+                            enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)),
+                              borderSide: BorderSide(
+                                color: Color(0xff50C878),
+                              ),
+                            ),
+                            focusedBorder: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)))),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -173,41 +215,41 @@ class _NameState extends State<Name> {
                 flex: 2,
                 child: Column(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       height: 25,
                     ),
-                    SizedBox(
+                    Container(
                       width: 350,
                       height: 45,
                       child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamedAndRemoveUntil(
-                                context, 'home', (route) => false);
+                                context, 'login', (route) => false);
                           },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12)),
                               backgroundColor: const Color(0xff19BC9B)),
                           child: Text(
-                            "Login",
+                            "Submit",
                             style: GoogleFonts.geologica(
                                 color: Colors.white, fontSize: 18),
                           )),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 25,
                     ),
-                    Text("Don't have an account?",
+                    Text("Already have an account?",
                         style: GoogleFonts.poppins(
                             color: Colors.black, fontWeight: FontWeight.w500)),
-                    const SizedBox(
+                    SizedBox(
                       height: 10,
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'register');
+                        Navigator.pop(context);
                       },
-                      child: Text("Register with us.",
+                      child: Text("Login",
                           style: GoogleFonts.poppins(
                               color: const Color(0xff50C878),
                               fontSize: 11,
@@ -223,6 +265,3 @@ class _NameState extends State<Name> {
     );
   }
 }
-//  CustomPaint(
-//                 painter: SemiCirclePainter(color: Colors.blue),
-//               ),

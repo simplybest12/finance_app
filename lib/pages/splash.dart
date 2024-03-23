@@ -18,14 +18,14 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushNamedAndRemoveUntil(
           context, '/', (route) => false);
     });
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Image.asset(
@@ -33,8 +33,8 @@ class _SplashState extends State<Splash> {
               fit: BoxFit.fill,
             ),
           ),
-          SizedBox(
-            height: 2,
+          const SizedBox(
+            height: 25,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +42,7 @@ class _SplashState extends State<Splash> {
               Center(
                   child: Image.asset(
                 'assets/images/investment.png',
-                color: Colors.white,
+                color: const Color(0xff19BC9B),
                 height: 70,
               )),
               RichText(
@@ -51,12 +51,12 @@ class _SplashState extends State<Splash> {
                   TextSpan(
                     text: "Money  ".toUpperCase(),
                     style: GoogleFonts.grenzeGotisch(
-                        fontSize: 28, color: Color(0xff50C878)),
+                        fontSize: 28, color: const Color(0xff50C878)),
                   ),
                   TextSpan(
                     text: "Mate",
                     style:
-                        GoogleFonts.tektur(fontSize: 25, color: Colors.white),
+                        GoogleFonts.tektur(fontSize: 25, color: Colors.black),
                   ),
                 ]),
               ),

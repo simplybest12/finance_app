@@ -75,7 +75,7 @@ class _GetStartedState extends State<GetStarted> {
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12)),
-                        backgroundColor: Color(0xff50C878)),
+                        backgroundColor:Color(0xff19BC9B)),
                     child: Text(
                       "Lets Start",
                       style: GoogleFonts.geologica(
