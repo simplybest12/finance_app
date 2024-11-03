@@ -1,10 +1,13 @@
-import 'package:finance_app/pages/home.dart';
+import 'package:finance_app/pages/home/home.dart';
 import 'package:finance_app/pages/statistics.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+
+import '../controller.dart/navigation_controller.dart';
 
 class Bottom extends StatefulWidget {
-  const Bottom({super.key});
+  Bottom({super.key});
 
   @override
   State<Bottom> createState() => _BottomState();
@@ -12,83 +15,60 @@ class Bottom extends StatefulWidget {
 
 class _BottomState extends State<Bottom> {
   int selected_index = 0;
-  List screen = [HomePage(), Statistics(), HomePage(), Statistics];
+  List screen = [HomePage(), Statistics()];
+  final controller = Get.put(NavigationCotroller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screen[selected_index],
-      floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        onPressed: () {},
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
+        body: Obx(
+          () => screen[controller.currentIndex.value],
         ),
-        backgroundColor: Color(0xff19BC9B),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Padding(
-          padding: EdgeInsets.only(top: 7.5, bottom: 7.5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      selected_index = 0;
-                    });
-                  },
-                  icon: Icon(
-                    selected_index != 0 ? Icons.home_outlined : Icons.home,
-                    color:
-                        selected_index == 0 ? Color(0xff19BC9B) : Colors.grey,
-                  )),
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      selected_index = 1;
-                    });
-                  },
-                  icon: Icon(
-                      selected_index != 1
-                          ? Icons.bar_chart_outlined
-                          : Icons.bar_chart,
-                      color: selected_index == 1
-                          ? Color(0xff19BC9B)
-                          : Colors.grey)),
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      selected_index = 2;
-                    });
-                  },
-                  icon: Icon(
-                      selected_index != 2
-                          ? Icons.account_balance_outlined
-                          : Icons.account_balance,
-                      color: selected_index == 2
-                          ? Color(0xff19BC9B)
-                          : Colors.grey)),
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      selected_index = 3;
-                    });
-                  },
-                  icon: Icon(
-                      selected_index != 3
-                          ? Icons.person_outlined
-                          : Icons.person,
-                      color: selected_index == 3
-                          ? Color(0xff19BC9B)
-                          : Colors.grey)),
-            ],
+        floatingActionButton: FloatingActionButton(
+          shape: CircleBorder(),
+          onPressed: () {
+            Navigator.of(context).pushNamed('add');
+          },
+          backgroundColor: Color(0xff19BC9B),
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: [Color(0xff00c9ff), Color(0xff92fe9d)],
+                  stops: [0, 1],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )),
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
           ),
         ),
-      ),
-    );
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+          child: Obx(
+            () => BottomNavigationBar(
+              
+                currentIndex: controller.currentIndex.value,
+                selectedItemColor: Colors.teal,
+                onTap: (value) {
+                  controller.changeValue(value);
+                },
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                backgroundColor: Colors.white,
+                elevation: 3,
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Iconsax.home5), label: "Home"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Iconsax.chart4), label: "Stats"),
+                  // BottomNavigationBarItem(icon: Icon(Iconsax.profile), label: "Account")
+                ]),
+          ),
+        ));
   }
 }

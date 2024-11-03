@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyC4YA2nC9sPyQsVdlOzYohl17UNA4OyLbI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>709314752684</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.financeApp.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>financeapp-ead7f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>financeapp-ead7f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:709314752684:ios:c4b5fd6f0bc8349274af09</string>
+</dict>
+</plist>

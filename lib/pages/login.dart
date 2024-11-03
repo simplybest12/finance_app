@@ -16,7 +16,7 @@ class _NameState extends State<Name> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height - 20,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -182,7 +182,7 @@ class _NameState extends State<Name> {
                       child: ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamedAndRemoveUntil(
-                                context, 'home', (route) => false);
+                                context, 'bottom', (route) => false);
                           },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(

@@ -52,7 +52,12 @@ class _GetStartedState extends State<GetStarted> {
                       ),
                     ]),
                   ),
-                  Divider(),
+                  SizedBox(
+                    width: 250,
+                    child: Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
                   Text(
                     "The ultimate app to track your expense".toUpperCase(),
                     textAlign: TextAlign.center,
@@ -75,7 +80,7 @@ class _GetStartedState extends State<GetStarted> {
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12)),
-                        backgroundColor:Color(0xff19BC9B)),
+                        backgroundColor: Color(0xff19BC9B)),
                     child: Text(
                       "Lets Start",
                       style: GoogleFonts.geologica(

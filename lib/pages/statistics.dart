@@ -1,4 +1,6 @@
+import 'package:finance_app/widgets/barchart.dart';
 import 'package:finance_app/widgets/chart.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +18,6 @@ class _StatisticsState extends State<Statistics> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    print("you did it!");
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -77,7 +78,12 @@ class _StatisticsState extends State<Statistics> {
                   SizedBox(
                     height: 50,
                   ),
-                  Chart(),
+                  Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 4, vertical: 16),
+                      height: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(color: Colors.white),
+                      child: PageView(children: [BarChartDataaa(), Chart()])),
                   SizedBox(
                     height: 30,
                   ),
@@ -122,7 +128,7 @@ class _StatisticsState extends State<Statistics> {
                       fontWeight: FontWeight.w600),
                 ),
                 subtitle: Text(
-                  geter()[index].time!,
+                  geter()[index].date!,
                   style: GoogleFonts.aBeeZee(
                       fontSize: 11,
                       color: Colors.black45,

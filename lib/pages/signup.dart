@@ -199,7 +199,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(12)),
                               borderSide: BorderSide(
-                                color: Color(0xff50C878),
+                                color: Color(0xffC5C5C5),
                               ),
                             ),
                             focusedBorder: const OutlineInputBorder(
